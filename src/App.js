@@ -18,7 +18,6 @@ export default function App() {
   useEffect(() => {
     setActivSize(size);
     setActiveAxis(repeat);
-    console.log(repeat);
   }, [size, repeat]);
 
   return (

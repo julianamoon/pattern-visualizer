@@ -1,12 +1,7 @@
 import React from "react";
-
-const buttonStyle =
-  "bg-blue-600 text-white py-2 px-2 flex-1 cursor-pointer transition hover:bg-blue-400";
-const activeButtonStyle =
-  "bg-white text-blue-600 font-bold py-2 px-2 flex-1 cursor-pointer";
+import Button from "./Button";
 
 function Form({ setValue, setSize, setRepeat, activeSize, activeAxis }) {
-    
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -47,43 +42,31 @@ function Form({ setValue, setSize, setRepeat, activeSize, activeAxis }) {
       <fieldset>
         <label className="font-bold">Change Size</label>
         <div className="w-full flex items-stretch justify-stretch">
-          <button
-            data-size="10%"
-            className={`rounded-l-lg
-                  ${activeSize === "10%" ? activeButtonStyle : buttonStyle}`}
-            onClick={(e) => setSize(e.target.dataset.size)}
+          <Button
+            value="10%"
+            activeSize={activeSize}
+            setSize={setSize}
+            otherClasses={"rounded-l-lg"}
           >
             XS
-          </button>
-          <button
-            data-size="25%"
-            className={activeSize === "25%" ? activeButtonStyle : buttonStyle}
-            onClick={(e) => setSize(e.target.dataset.size)}
-          >
+          </Button>
+          <Button value="25%" activeSize={activeSize} setSize={setSize}>
             S
-          </button>
-          <button
-            data-size="50%"
-            className={activeSize === "50%" ? activeButtonStyle : buttonStyle}
-            onClick={(e) => setSize(e.target.dataset.size)}
-          >
+          </Button>
+          <Button value="50%" activeSize={activeSize} setSize={setSize}>
             M
-          </button>
-          <button
-            data-size="100%"
-            className={activeSize === "100%" ? activeButtonStyle : buttonStyle}
-            onClick={(e) => setSize(e.target.dataset.size)}
-          >
+          </Button>
+          <Button value="100%" activeSize={activeSize} setSize={setSize}>
             G
-          </button>
-          <button
-            data-size="150%"
-            className={`rounded-r-lg
-                  ${activeSize === "150%" ? activeButtonStyle : buttonStyle}`}
-            onClick={(e) => setSize(e.target.dataset.size)}
+          </Button>
+          <Button
+            value="150%"
+            activeSize={activeSize}
+            setSize={setSize}
+            otherClasses={"rounded-r-lg"}
           >
             XG
-          </button>
+          </Button>
         </div>
       </fieldset>
 
@@ -91,33 +74,32 @@ function Form({ setValue, setSize, setRepeat, activeSize, activeAxis }) {
       <fieldset>
         <label className="font-bold">Change Axis</label>
         <div className="w-full flex items-stretch justify-stretch">
-          <button
-            data-size="repeat"
-            className={`rounded-l-lg
-                  ${activeAxis === "repeat" ? activeButtonStyle : buttonStyle}`}
-            onClick={(e) => setRepeat(e.target.dataset.size)}
+          <Button
+            repeat
+            value="repeat"
+            activeAxis={activeAxis}
+            setRepeat={setRepeat}
+            otherClasses={"rounded-l-lg"}
           >
             All Axis
-          </button>
-          <button
-            data-size="repeat-x"
-            className={
-              activeAxis === "repeat-x" ? activeButtonStyle : buttonStyle
-            }
-            onClick={(e) => setRepeat(e.target.dataset.size)}
+          </Button>
+          <Button
+            repeat
+            value="repeat-x"
+            activeAxis={activeAxis}
+            setRepeat={setRepeat}
           >
-            X Axis
-          </button>
-          <button
-            data-size="repeat-y"
-            className={`rounded-r-lg
-                  ${
-                    activeAxis === "repeat-y" ? activeButtonStyle : buttonStyle
-                  }`}
-            onClick={(e) => setRepeat(e.target.dataset.size)}
+            All Axis
+          </Button>
+          <Button
+            repeat
+            value="repeat-y"
+            activeAxis={activeAxis}
+            setRepeat={setRepeat}
+            otherClasses={"rounded-r-lg"}
           >
-            Y Axis
-          </button>
+            All Axis
+          </Button>
         </div>
       </fieldset>
     </form>
